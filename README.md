@@ -75,7 +75,7 @@ This article introduces a single-page ASPX page, `test_gt_connection.aspx` that 
         //InputFile.FilePath = '*Libl/CMastNewL1'
     EndSr
 
-> You can download the `test_dg_connect.aspx` from [this ASNA GitHub page.](https://github.com/rogerpence/test-datagate-connection) or you can [download a zipped copy of it here](http://asna.com/media/packages/test_dg_connection-1.zip). If you're reading this article on ASNA.com you can also download the file with the "Download" button at the top of this page.
+> You can download the `test_dg_connect.aspx` from [this ASNA GitHub page.](https://github.com/ASNA/test_dg_connection.aspx) or you can [download a zipped copy of it here](http://asna.com/media/packages/test_dg_connection.aspx-1.zip). If you're reading this article on ASNA.com you can also download the file with the "Download" button at the top of this page.
 
 Before you deploy the file you need to make a few changes to it. The changes you need to make to the code are isolated to four specific areas: 
 
@@ -100,13 +100,13 @@ If you have licensing problem, the page displays like this:
 
 <small>Figure 1b. A licensing error occurred.</small>
 
-Note that while the ASNA DataGate Monitor can test a DataGate connection, because the DataGate Monitor is a fat client app, it doesn't test that you have a valid Webpak license registered. Use the `test_dg_connection.aspx` for that. 
+Note that while the ASNA DataGate Monitor can test a DataGate connection, because the DataGate Monitor is a fat client app, it doesn't test that you have a valid WebPak license registered. Use the `test_dg_connection.aspx` for that. 
 
-If any other type of error occurs the page displays like this:
+If any other type of error occurs the page displays like this (varying the top level error message to reflect the specific error that occurred):
 
 ![](https://asna.com/media/images/error-1.png)
 
-<small>Figure 1c. Some other error occurred. (in this case to cause an error I disconnected the VPN)</small>
+<small>Figure 1c. Some other error occurred. (in this case to cause an error I disconnected a VPN connection)</small>
 
 ### Using the page-level overrides
 
@@ -131,7 +131,7 @@ The code in `test_db_connection.aspx` is mostly self-explanatory. The only thing
 
 * The AVR code is inside a `<script runat="server">` tag. This eliminates the need for a code-behind file and makes the test page easy to install. Generally embedding server-side code in your ASPX is a bad idea--but it's just perfect for this use case.
 
-* Check out the `PingSerer` and `CheckPort` subroutines for how to programmatically ping a server and check that a port is open. 
+* Check out the `PingServer` and `CheckPort` subroutines for how to programmatically ping a server and check that a port is open. 
 
 >A warning about single-page ASPX pages: Don't use global variables with a single page file like this. Keep all your variables local to subroutines and functions. This may be a bug and we are investigating that. 
 
